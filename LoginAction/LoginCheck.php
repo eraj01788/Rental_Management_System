@@ -3,7 +3,7 @@ include ('DataAccess.php');
 session_start(); 
 
             $newEntry = new DataAccess();
-            $UserType=$fName=$userEmail=$userName=$gender=$DOB="";
+            $UserType=$fName=$userEmail=$userName=$gender=$DOB=$Password="";
             $UserTypeError=$fNameError=$userEmailError=$userNameError=$genderError=$DOBError="";
 // store session data
          if (isset($_POST['submit']))
@@ -70,6 +70,8 @@ session_start();
 
               }
 
+              $Password=$_POST["Password"];
+
               $target_dir = "LoginAction/files/";
               $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 
@@ -84,7 +86,7 @@ session_start();
         
 
               $insertQuery = "INSERT INTO Users (UserType, fName, userEmail,userName,gender,DOB,UserPassword)
-              VALUES (". $fname .", ". $lname .", ‘". $email .")";
+              VALUES (". $UserType .", ". $fName .", ". $userEmail .", ". $userName .", ". $gender .", ". $DOB .", ". $Password .")";
               
 
               if($newEntry->SetData($insertQuery)>0)

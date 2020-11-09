@@ -91,11 +91,11 @@
                     </tr>
                     <tr>
                         <td><label for="password">Password</label></td>
-                        <td>: <input type="password"placeholder="Password" ></td>
+                        <td>: <input type="password"name="Password" placeholder="Password" ></td>
                     </tr>
                     <tr>
                         <td><label for="confirm password">Confirm Password</label></td>
-                        <td>: <input type="password"placeholder="Confirm Password" ></td>
+                        <td>: <input type="password" name="Password" placeholder="Confirm Password" ></td>
                     </tr>
                 </table>
                 <table>
