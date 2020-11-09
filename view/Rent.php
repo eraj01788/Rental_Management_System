@@ -10,7 +10,7 @@
         <th><a href="Home.php"><h1>Home</h1></a></th>
         <th><a href="Rent.php"><h1>Rent</h1></a></th>
         <th><a href="About.php"><h1>About</h1></a></th>
-        <th><a href="../Profile.php"><h1>Profile</h1></a></th>
+        <th><a href="SignUp.php"><h1>Profile</h1></a></th>
       </tr>
     </table>
   </body>

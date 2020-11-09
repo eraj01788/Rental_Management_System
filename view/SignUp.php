@@ -6,11 +6,11 @@
     </head>
     <body>
 
-        <table style="width:50%">
+        <!-- <table style="width:50%">
             <tr>
                 <th>
                     <a href="LoginAction/Home.php">
-                        <h1>Home</h1>
+                        <h1>Home</h1> 
                     </a>
                 </th>
                 <th>
@@ -30,15 +30,15 @@
                 </th>
             </tr>
         </table>
-        <br><br>
+        <br><br> -->
 
         <?php
-        include('LoginAction/LoginCheck.php');
+        include('../LoginAction/SignUpCheck.php');
         
 
         if(isset($_SESSION['userName'])||isset($_SESSION['userEmail']))
         {
-            header("location: LoginAction/Home.php");
+            //header("location: Login.php");
         }
         else
         {
