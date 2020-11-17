@@ -2,21 +2,24 @@
 include ('DataAccess.php');
 session_start(); 
 
+
+
+
             $newEntry = new DataAccess();
             $UserType=$fName=$userEmail=$userName=$gender=$DOB=$Password="";
-            $UserTypeError=$fNameError=$userEmailError=$userNameError=$genderError=$DOBError="";
+            $UserTypeError=$fNameError=$userEmailError=$userNameError=$genderError=$DOBError=$PassError="";
+            $res="";
 // store session data
          if (isset($_POST['submit']))
           {
 
-              if(isset($_POST["UserType"]))
+              if(empty($_POST["UserType"]))
               {
                 $UserTypeError="Select User Type";
               }
               else
               {
-                $UserType=$_POST["UserType"];
-                
+                $UserType=$_POST['UserType'];
               }
             
               if(empty($_POST["fName"]))
@@ -67,12 +70,18 @@ session_start();
               else
               {
                 $DOB=$_POST["DOB"];
-
               }
 
-              $Password=$_POST["Password"];
+              if(empty($_POST["Password"]))
+              {
+                $PassError="Enter Your Password";
+              }
+              else
+              {
+                $Password=$_POST["Password"];
+              }
 
-              $target_dir = "files/";
+              $target_dir = "../files/";
               $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 
               if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) 
@@ -85,17 +94,27 @@ session_start();
               }
         
 
-              $insertQuery = "INSERT INTO Users (UserType, fName, userEmail,userName,gender,DOB,UserPassword) VALUES (".$UserType.",".$fName.",".$userEmail.",".$userName.",".$gender.",".$DOB.",".$Password.")";
-              $queryExc=$newEntry->SetData($insertQuery);
 
-              if($queryExc->num_rows>0)
+            if(!empty($_POST["UserType"])&&!empty($_POST["fName"])&&!empty($_POST["userEmail"])&&!empty($_POST["userName"])&&!empty($_POST["gender"])&&!empty($_POST["DOB"])&&!empty($_POST["Password"]))
+            {
+                $insertQuery = "INSERT INTO Users (UserType, fName, userEmail,userName,gender,DOB,UserPassword) VALUES ('".$UserType."','".$fName."','".$userEmail."','".$userName."','".$gender."','".$DOB."','".$Password."')";
+              
+
+              if($newEntry->SetData($insertQuery))
               {
-                header("location: Login.php");
+                $res="User Created Redirecting to Login Page";
+                header("Refresh:5;url= Login.php"); 
               }
               else
               {
-                echo "error occurred";
+                $res="User not Created";
               }
+            }
+            else
+            {
+              $res="Must Fill All The Field";
+            }
+              
 
           }  
 

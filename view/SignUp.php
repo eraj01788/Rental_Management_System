@@ -48,18 +48,16 @@
 
         <fieldset style="width:50%">
             <legend>SignUp</legend>
-            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST" enctype="multipart/form-data">
+            <form action="" method="POST" enctype="multipart/form-data">
                 <table>
                     <tr>
-                        <td><label for="ChooseStuff">Type Of Account </label>
+                        <td><label for="ChooseStuff">Type Of Account </label></td>
                         
                         <td>
-                            <select name="UserType">
-                                <option value="Buyer">Buyer</option>
-                                <option value="Seller">Seller</option>
-                            </select>
+                        : <input type="radio" value="Buyer" name="UserType" id="" >Buyer
+                            <input type="radio" value="Seller" name="UserType" id="" >Seller
                         </td>
-                        
+                        <td><?php echo $UserTypeError?></td>
                         
                     </tr>
                     <tr>
@@ -79,10 +77,9 @@
                         <td><?php echo $fNameError?></td>
                     </tr>
                     <tr>
-                        <td><label for="Email">Email</label></td>
-                        
+                        <td><label for="Email">Email</label></td>                        
                         <td>: <input type="email" name="userEmail" placeholder="Email" ></td>
-                        <td><td><?php echo $userEmailError?></td></td>
+                        <td><?php echo $userEmailError?></td>
                     </tr>
                     <tr>
                         <td><label for="username">User Name</label></td>
@@ -92,10 +89,12 @@
                     <tr>
                         <td><label for="password">Password</label></td>
                         <td>: <input type="password"name="Password" placeholder="Password" ></td>
+                        <td><?php echo $PassError?></td>
                     </tr>
                     <tr>
                         <td><label for="confirm password">Confirm Password</label></td>
                         <td>: <input type="password" name="Password" placeholder="Confirm Password" ></td>
+                        <td><?php echo $PassError?></td>
                     </tr>
                 </table>
                 <table>
@@ -104,9 +103,9 @@
                             <label for="Gender">Gender  </label>
                         </td>
                         <td>
-                            : <input type="radio" name="gender" id="" >Male
-                            <input type="radio" name="gender" id="" >Female
-                            <input type="radio" name="gender" id="" >Other
+                            : <input type="radio" value="Male" name="gender" id="" >Male
+                            <input type="radio" value="Female" name="gender" id="" >Female
+                            <input type="radio" value="Others" name="gender" id="" >Other
                             
                         </td>
                         <td><?php echo $genderError?></td>
@@ -131,12 +130,7 @@
 
         <table>
             <tr>
-                <td>Name:</td>
-                <td> <?php echo $fName ?></td>
-            </tr>
-            <tr>
-                <td>Email:</td>
-                <td><?php echo $userEmail ?></td>
+                <td> <?php echo $res ?></td>
             </tr>
         </table>
         
