@@ -1,13 +1,10 @@
 <?php
-
-$profileType="";
-
 session_start(); 
+include('../control/BrowseAdsControl.php');
 if(empty($_SESSION["username"])||empty($_SESSION["UserType"])) 
 {
   header("Location: Login.php"); // Redirecting To Login Page
 }
-include('../control/HomeControl.php');
 ?>
 
 <!DOCTYPE html>
@@ -38,59 +35,54 @@ include('../control/HomeControl.php');
       </tr>
     </table>
 
+    
 
 
-<form action="" method="post">
-<table>
-    <tr>
-      <td><label for="Search">Search Which Service You Want : </label></td>
-      <td><input type="text" name="searchText" id=""></td>
-      <td><input name="searchBtn" type="submit" value="Search"></td>
-      <td><?php echo $searchError;?></td>
-    </tr>
-  </table>
-  
-</form> 
-
-
-<form action="">
+    <form action="" method="POST">
       
        <table>
          <tr>
-           <td></td>
-           <td></td>
-           <td></td>
-
-           <?php 
            
-           echo $ErrorResult;
-            
-            $length = count($resultService);
-            for ($i = 0; $i < $length; $i++) 
-            {
-              while($row = $resultService[$i]->fetch_assoc()) 
+        </tr> 
+           <?php 
+
+                        if (isset($_POST["contact"]))
+                        {
+                           $_SESSION["Seller_id"]=$_POST["contact"];
+                           header("Refresh:0;url= SellerContactPage.php"); 
+                        }
+          
+
+           if (!empty($result->num_rows))
+           {
+             // output data of each row
+             while($row = $result->fetch_assoc()) 
              {
-                $field1name = $row["Service_name"];
+               $field1name = $row["Service_name"];
                $field2name = $row["Service_price"];
                $field3name = $row["Service_details"];
                $field4name = $row["Service_image"];
-
+               $field5name = $row["Seller_id"];
                echo '
                <tr> 
                <td><img src="'.$field4name.'" alt=""width="300" height="300"></td> 
                <td><label for="ServiceName">Service Name :  '.$field1name.'----</label></td> 
                <td><label for="ServicePrice">Service Price :  '.$field2name.'----</label></td>
                <td><label for="ServiceDetails">Service Details :  '.$field3name.'---</label></td>
+               <td><label for="SellerContact">Contact With This Seller :---</label></td>
+               <td><input type="submit" value='.$field5name.' name="contact"></td>
                 </tr>';
              }
-            }    
-           
+           } 
+           else
+            {
+             echo "0 results";
+            }  
          ?>
-         </tr>
+         
        </table>
       
     </form>
-
 
 
   </body>

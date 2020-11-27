@@ -9,7 +9,11 @@ class DataAccess{
 
    function GetData($sqlQuery)
    {
-      
+      $result=$this->conn->query($sqlQuery);
+      if(!empty($result->num_rows))
+      {
+         return $result;         
+      }
    }
 
    // function CheckUser($conn,$table,$username,$password)
@@ -17,6 +21,7 @@ class DataAccess{
    //    $result = $conn->query("SELECT * FROM ". $table." WHERE username='". $username."' AND password='". $password."'");
    //    return $result;
    // }
+
 
    function SetData($sqlQuery)
    {

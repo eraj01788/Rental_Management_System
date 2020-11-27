@@ -3,6 +3,6 @@ session_start();
 
 if(session_destroy()) // Destroying All Sessions
 {
-header("Location: ../view/SignUp.php"); // Redirecting To Home Page
+header("Location: ../view/Login.php"); // Redirecting To Login Page
 }
 ?>

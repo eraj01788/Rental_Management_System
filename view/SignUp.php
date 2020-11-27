@@ -6,34 +6,9 @@
     </head>
     <body>
 
-        <!-- <table style="width:50%">
-            <tr>
-                <th>
-                    <a href="LoginAction/Home.php">
-                        <h1>Home</h1> 
-                    </a>
-                </th>
-                <th>
-                    <a href="LoginAction/Rent.php">
-                        <h1>Rent</h1>
-                    </a>
-                </th>
-                <th>
-                    <a href="LoginAction/About.php">
-                        <h1>About</h1>
-                    </a>
-                </th>
-                <th>
-                    <a href="Profile.php">
-                        <h1>Profile</h1>
-                    </a>
-                </th>
-            </tr>
-        </table>
-        <br><br> -->
 
         <?php
-        include('../LoginAction/SignUpCheck.php');
+        include('../control/SignUpCheck.php');
         
 
         if(isset($_SESSION['userName'])||isset($_SESSION['userEmail']))
@@ -42,7 +17,7 @@
         }
         else
         {
-          echo " Need SignUp. ";
+          //echo " Need SignUp. ";
         }
         ?>
 
@@ -67,6 +42,7 @@
                     <tr>
                         <td><label for="ChooseProfile">Choose Profile Image</label></td>
                         <td><input type="file" name="fileToUpload" id="fileToUpload"></td>
+                        <td><?php echo $FileError;?></td>
                     </tr>
 
 
@@ -78,7 +54,7 @@
                     </tr>
                     <tr>
                         <td><label for="Email">Email</label></td>                        
-                        <td>: <input type="email" name="userEmail" placeholder="Email" ></td>
+                        <td>: <input type="text" name="userEmail" placeholder="Email" ></td>
                         <td><?php echo $userEmailError?></td>
                     </tr>
                     <tr>
@@ -86,6 +62,21 @@
                         <td>: <input type="text"placeholder="User Name" name ="userName"></td>
                         <td><?php echo $userNameError?></td>
                     </tr>
+
+
+                    <tr>
+                        <td><label for="contact">Contact</label></td>
+                        <td>: <input type="text"placeholder="Contact" name ="contactNo"></td>
+                        <td><?php echo $contactNoError?></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="Useraddress">Useraddress</label></td>
+                        <td>: <input type="text"placeholder="User Address" name ="userAddress"></td>
+                        <td><?php echo $userAddressError?></td>
+                    </tr>
+
+
                     <tr>
                         <td><label for="password">Password</label></td>
                         <td>: <input type="password"name="Password" placeholder="Password" ></td>
@@ -111,28 +102,11 @@
                         <td><?php echo $genderError?></td>
                     </tr>
                 </table>
-                <table>
-                    <tr>
-                        <td>
-                            <label for="DateOfBirth">Date Of Birth :</label> 
-                        </td>
-                        <td>
-                            <input type="date" name="DOB" id="" > 
-                        </td>
-                        <td><?php echo $DOBError?></td>
-                    </tr>
-                </table>
                 <br>
                 <input type="submit" name="submit" value="Submit">
                 <input type="reset" value="Reset">
             </form>
         </fieldset>
-
-        <table>
-            <tr>
-                <td> <?php echo $res ?></td>
-            </tr>
-        </table>
         
         <br><br>
     </body>

@@ -1,9 +1,9 @@
 <?php
-include('../LoginAction/logincheck.php');
+include('../control/logincheck.php');
 
-if(isset($_SESSION['username'])){
-header("location: Home.php");
-}
+// if(isset($_SESSION['username'])){
+// header("location: Home.php");
+// }
 ?>
 <!DOCTYPE html>
 <html>
@@ -12,10 +12,38 @@ header("location: Home.php");
 <h2>Login</h2>
 
 <form action="" method="post">
-    <input type="text" name="username" placeholder="Enter your username" required>
-    <input type="password" name="password" placeholder="Enter your password" required>
-    <input name="submit" type="submit" value="LOGIN">
+
+ <table>
+
+      <tr>
+         <td><label for="ChooseStuff">Type Of Account </label></td>
+                        
+            <td>
+                : <input type="radio" value="Buyer" name="UserType" id="" >Buyer
+                 <input type="radio" value="Seller" name="UserType" id="" >Seller
+                 <input type="radio" value="Admin" name="UserType" id="" >Admin
+            </td>
+            <td><?php echo $UserTypeError?></td>
+                        
+     </tr>
+
+     <tr>
+         <td><label for="Username">Enter your username : </label></td>
+         <td><input type="text" name="username" placeholder="User Name"></td>  
+         <td><?php echo $UserNameError?></td>
+     </tr>
+
+     <tr>
+     <td><label for="Password">Enter your password : </label></td>
+     <td><input type="password" name="password" placeholder="Password"></td>
+     <td><?php echo $PasswordError?></td>
+     </tr>
+
+ </table> 
+
+ <input name="submit" type="submit" value="LOGIN">
 </form>
+
 
 <form action="SignUp.php"method="get">
     <label for="SignUp">Don't Have Account SignUp First. </label>
@@ -23,7 +51,5 @@ header("location: Home.php");
 </form>
 
 <br>
-<?php echo $error; ?>
-
 </body>
 </html>
