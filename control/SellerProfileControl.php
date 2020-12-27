@@ -1,8 +1,8 @@
 <?php
 include('DataAccess.php');
-$ServiceName=$ServiceDetails="";
+$ServiceName=$ServiceDetails=$ServiceLocation="";
 $ServicePrice=0;
-$ServiceNameError=$ServicePriceError=$ServiceDetailsError="";
+$ServiceNameError=$ServicePriceError=$ServiceDetailsError=$ServiceLocationError="";
 
 $sellerName=$sellerId=$sellerEmail=$sellerContact=$sellerAddress=$sellerGender="";
 $sellerImage;
@@ -68,6 +68,15 @@ if (isset($_POST['PostAds'])) {
         $ServiceDetails=$_POST["ServiceDetails"];
         
     }
+    if(empty($_POST["ServiceLocation"]))
+    {
+        $ServiceDetailsError="Enter Location";
+    }
+    else
+    {
+        $ServiceLocation=$_POST["ServiceLocation"];
+        
+    }
 
 
               $target_dir = "../files/";
@@ -87,8 +96,8 @@ if (isset($_POST['PostAds'])) {
     $newConn=new DataAccess();
 
     $approve=false;
-    $insertQuery = "INSERT INTO SellerAds(Seller_id,Service_name,Service_price,Service_details,Service_image,Service_approved) VALUES 
-    ('".$_SESSION["username"]."','".$ServiceName."','".$ServicePrice."','".$ServiceDetails."','".$target_file."','".$approve."')";
+    $insertQuery = "INSERT INTO SellerAds(Seller_id,Service_name,Service_price,Service_details,Service_image,Service_approved,Service_location) VALUES 
+    ('".$_SESSION["username"]."','".$ServiceName."','".$ServicePrice."','".$ServiceDetails."','".$target_file."','".$approve."','".$ServiceLocation."')";
     
     if(!empty($_POST['ServiceName'])&&!empty($_POST['ServicePrice'])&&!empty($_POST['ServiceDetails']))
     {

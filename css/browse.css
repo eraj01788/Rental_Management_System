@@ -31,9 +31,9 @@ a.sellerprofilebtn:hover {
 }
 
 input.sboxbtn {
-  width: 85px;
+  /* width: 85px; */
   height: 31px;
-  margin: 11px 180px;
+  margin: 11px -1px;
   background: #6b62f9;
   border-radius: 20px;
   text-decoration: none;
@@ -45,12 +45,11 @@ input.sboxbtn:hover{
 }
 
 input.sbox {
-  width: 200%;
+  width: 370px;
   height: 25px;
   border-radius: 20px;
-
 }
 
 .searcbox {
-  margin: 2px 313px;
+  margin: 2px 559px;
 }

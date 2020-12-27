@@ -1,7 +1,7 @@
 <?php
 include('MainHeader.php');
 include('../control/BrowseAdsControl.php');
-if(empty($_SESSION["username"])||empty($_SESSION["UserType"])) 
+if(empty($_SESSION["username"])||empty($_SESSION["UserType"]))  
 {
   header("Location: Login.php"); // Redirecting To Login Page
   
