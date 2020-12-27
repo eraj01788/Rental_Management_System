@@ -1,18 +1,26 @@
+
 <?php
 include ('../control/DataAccess.php');
+include('MainHeader.php');
+
+if(empty($_SESSION["username"])||empty($_SESSION["UserType"])) 
+{
+  header("Location: Login.php"); // Redirecting To Login Page
+}
 $sellerName=$sellerId=$sellerEmail=$sellerContact=$sellerAddress=$sellerGender="";
 $sellerImage;
-   session_start(); 
+$query1="";
    if(empty($_SESSION["username"])||empty($_SESSION["UserType"])) 
    {
      header("Location: Login.php"); // Redirecting To Login Page
    }
 
+$sellerid="";
 
-
+$sellerid=$_GET['seller_id'];
 
 $newConn1 = new DataAccess();
-$query1 = "SELECT * FROM Seller WHERE username='".$_SESSION["Seller_id"]."'";
+$query1 = "SELECT * FROM Seller WHERE username='".$sellerid."'";
 $result1=$newConn1->GetData($query1);
 
 while($row=$result1->fetch_assoc())

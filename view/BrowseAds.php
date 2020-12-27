@@ -1,10 +1,12 @@
 <?php
-session_start(); 
+include('MainHeader.php');
 include('../control/BrowseAdsControl.php');
 if(empty($_SESSION["username"])||empty($_SESSION["UserType"])) 
 {
   header("Location: Login.php"); // Redirecting To Login Page
+  
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -12,78 +14,63 @@ if(empty($_SESSION["username"])||empty($_SESSION["UserType"]))
   <head>
     <meta charset="utf-8">
     <title>Home</title>
+    <link rel="stylesheet" href="../css/browse.css">
+    <!-- <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/> -->
   </head>
   <body>
 
-  <h1>Rental Management System</h1>
 
-    <table style="width:50%">
-      <tr>
-        <th><a href="Home.php"><h2>Home</h2></a></th>
-        <th><a href="BrowseAds.php"><h2>BrowseAds</h2></a></th>
-        <th><a href="Categorise.php"><h2>Categorise</h2></a></th>
-        <?php  
-        if($_SESSION["UserType"]=="Seller")
-        {
-          echo '<th><a href="SellerProfile.php"><h2>Profile</a></h2></th>';  
-        }
-        else if($_SESSION["UserType"]=="Admin")
-        {
-          echo '<th><a href="AdminProfile.php"><h2>Profile</a></h2></th>';  
-        }    
-        ?> 
-      </tr>
-    </table>
-
-    
+<div class="searcbox">
+<form action="" method="post">
+<table>
+    <tr>
+      <td><input class="sbox" type="text" name="searchtext"></td>
+      <td><input class="sboxbtn" name="searchBtn" type="submit" value="Search"></td>
+    </tr>
+  </table>
+  <br>
+</form> 
+</div>
 
 
-    <form action="" method="POST">
+<div class="StyleAds">
+<form action="" method="POST">
       
-       <table>
-         <tr>
-           
-        </tr> 
-           <?php 
-
-                        if (isset($_POST["contact"]))
-                        {
-                           $_SESSION["Seller_id"]=$_POST["contact"];
-                           header("Refresh:0;url= SellerContactPage.php"); 
-                        }
-          
-
-           if (!empty($result->num_rows))
+    <ul id="mytext">
+           <?php                    
+         if (!empty($result->num_rows))
+         {
+           // output data of each row
+           while($row = $result->fetch_assoc()) 
            {
-             // output data of each row
-             while($row = $result->fetch_assoc()) 
-             {
-               $field1name = $row["Service_name"];
-               $field2name = $row["Service_price"];
-               $field3name = $row["Service_details"];
-               $field4name = $row["Service_image"];
-               $field5name = $row["Seller_id"];
-               echo '
-               <tr> 
-               <td><img src="'.$field4name.'" alt=""width="300" height="300"></td> 
-               <td><label for="ServiceName">Service Name :  '.$field1name.'----</label></td> 
-               <td><label for="ServicePrice">Service Price :  '.$field2name.'----</label></td>
-               <td><label for="ServiceDetails">Service Details :  '.$field3name.'---</label></td>
-               <td><label for="SellerContact">Contact With This Seller :---</label></td>
-               <td><input type="submit" value='.$field5name.' name="contact"></td>
-                </tr>';
-             }
-           } 
-           else
-            {
-             echo "0 results";
-            }  
+             $field1name = $row["Service_name"];
+             $field2name = $row["Service_price"];
+             $field3name = $row["Service_details"];
+             $field4name = $row["Service_image"];
+             $field6name = $row["Service_location"];
+             $field5name = $row["Seller_id"];
+             echo '
+             
+             <li class="BrowseS"><img src="'.$field4name.'" class="simage" alt=""><br>
+             <label for="ServiceName">Service Name :  '.$field1name.'</label><br>
+             <label for="ServicePrice">Service Price :  '.$field2name.'</label><br>
+             <label for="ServiceDetails">Service Details :  '.$field3name.'</label><br>
+             <label for="Location">Service Details :  '.$field6name.'</label><br><br>
+             <a class="sellerprofilebtn" href="SellerContactPage.php?seller_id='.$field5name.'">Contact With Seller</a>
+             </li>';
+           }
+         } 
+            
          ?>
          
-       </table>
+    </ul>
       
     </form>
+</div>
 
 
   </body>
 </html>
+<?php
+include('MainFooter.php');
+?>

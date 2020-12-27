@@ -1,81 +1,59 @@
 <?php 
-
-$field1name;
-$field2name;
-$field3name;
-$field4name;
-
-$id=array();
-$resultService=array();
-$ErrorResult="";
-
 include ('DataAccess.php');
 
-$newConn = new DataAccess();
+$filterResultAccess = new DataAccess();
 
-$searchText=$searchError="";
+// if(isset($_POST['select']))
+// {
+//   echo $_POST['select'];
+//   echo "Hello";
+//   //header("Refresh:0;url= SellerProfile.php"); 
+// }
 
-if(isset($_POST["searchBtn"]))
+
+echo "Eraj";
+
+if($_POST["uname"]!="")
 {
-  if(empty($_POST["searchText"]))
-  {
-      $searchError="Enter Your Search Data";
-  }
-  else
-  {
-    if (!preg_match("/^[a-zA-Z-' ]*$/",$_POST["searchText"]))
-      {
-        $searchError = "Only letters allowed";
-      }
-      else
-      {
-          $searchText=$_POST["searchText"];
-      }
-  }
-}
+ $filterQuery="SELECT * FROM `sellerads` WHERE CONCAT(`Service_name`, `Service_price`, `Service_details`)LIKE '%".$_POST['uname']."%'";
+ $result = $filterResultAccess->GetData($filterQuery);
 
+ echo "Eraj";
 
-$getServiceNamequery="SELECT * FROM SellerAds WHERE Service_approved=1";
-$serviceNameResult=$newConn->GetData($getServiceNamequery);
-           if (!empty($serviceNameResult->num_rows)&&!empty($searchText))
+ if (!empty($result->num_rows))
+         {
+           while($row = $result->fetch_assoc()) 
            {
-             // output data of each row
-             while($row = $serviceNameResult->fetch_assoc()) 
-             {
-               $SerName = $row["Service_name"];
-               if(strpos(strtoupper($SerName), strtoupper($searchText)) !== false)
-               {
-                //echo "Word Found!";
-                array_push($id,$row["Service_id"]);     
-                $ErrorResult="Search Result";   
-               } 
-             }
-           } 
-           else
-            {
-              $ErrorResult="No Data Found";
-            }
+             $field1name = $row["Service_name"];
+             $field2name = $row["Service_price"];
+             $field3name = $row["Service_details"];
+             $field4name = $row["Service_image"];
+             $field5name = $row["Service_id"];
 
-            $length = count($id);
-            for ($i = 0; $i < $length; $i++) {
-              //print $id[$i];
-              $getServicequery="SELECT * FROM SellerAds WHERE Service_id=".$id[$i]."";
-               array_push($resultService,$newConn->GetData($getServicequery));
-            }
-             
+             echo '<form action="" method="POST">';
+             echo '<ul>';
+             echo '<li>';
+             echo '<label for="ServiceName">Service Name :  '.$field1name.'</label><br>';
+             echo '<label for="ServicePrice">Service Price :  '.$field2name.'</label><br>';
+             echo '<label for="ServiceDetails">Service Details :  '.$field3name.'</label><br>';
+             echo '<label for="SellerContact" class="sellercontacttext">Contact With This Seller</label>';
+             echo '<input type="submit" name="select" value='.$field5name.'><br><br><br>';
+             echo '</li>';
+             echo '</ul>';
 
 
-$query = "SELECT * FROM SellerAds WHERE Service_name='.$searchText.'";
+            //  echo '
+            //  <label for="ServiceName">Service Name :  '.$field1name.'</label><br>
+            //  <label for="ServicePrice">Service Price :  '.$field2name.'</label><br>
+            //  <label for="ServiceDetails">Service Details :  '.$field3name.'</label><br>
+            //  <label for="SellerContact" class="sellercontacttext">Contact With This Seller</></label>
+            //  <input type="submit" name="select" value='.$field5name.' onclick="select()"/></li><br><br><br>';
 
-$result=$newConn->GetData($query);
 
-if(!empty($result->num_rows))
-{
-  return $result;
+           }
+         } 
+         else
+         {
+           echo "No Data Found";
+         }
 }
-else
-{
-  $result=null;
-  return $result;
-}
-?>

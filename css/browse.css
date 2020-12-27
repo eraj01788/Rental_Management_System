@@ -1,0 +1,56 @@
+.StyleAds ul{
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    gap: 90px;
+    list-style-type: none;
+  }
+  .StyleAds {
+    margin-left: 20%;
+}
+
+img.simage {
+    border: 5px solid #6f6363;
+    border-radius: 10px;
+    /* box-sizing: border-box; */
+    width: 370px;
+    height: 300px;
+}
+
+a.sellerprofilebtn {
+  background: #6b62f9;
+  padding: 5px 90px;
+  border-radius: 20px;
+  margin: 10px 0px;
+  text-decoration: none;
+  color: #fff;
+}
+
+a.sellerprofilebtn:hover {
+  background: rgb(134, 123, 231);
+  color: #000;
+}
+
+input.sboxbtn {
+  width: 85px;
+  height: 31px;
+  margin: 11px 180px;
+  background: #6b62f9;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #fff;
+}
+input.sboxbtn:hover{
+  background: rgb(134, 123, 231);
+  color: #000;
+}
+
+input.sbox {
+  width: 200%;
+  height: 25px;
+  border-radius: 20px;
+
+}
+
+.searcbox {
+  margin: 2px 313px;
+}

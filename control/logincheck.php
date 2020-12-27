@@ -3,7 +3,7 @@ include('DataAccess.php');
 session_start(); 
 
 $username=$password=$UserType="";
-$UserTypeError=$UserNameError=$PasswordError="";
+$UserTypeError=$UserNameError=$PasswordError=$userError="";
 
 // store session data
 if (isset($_POST['submit'])) {
@@ -68,7 +68,7 @@ if (isset($_POST['submit'])) {
   }
   else
     {
-      echo "User Not Found";
+      $userError= "User Not Found";
     }
 }
 ?>

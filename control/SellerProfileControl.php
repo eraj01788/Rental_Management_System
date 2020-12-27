@@ -41,8 +41,6 @@ while($row=$result1->fetch_assoc())
 
 
 
-
-
 if (isset($_POST['PostAds'])) {
 
     if(empty($_POST["ServiceName"]))

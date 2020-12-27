@@ -1,6 +1,6 @@
 <?php
 include ('DataAccess.php');
-session_start(); 
+session_start();
 
 
             $newEntry = new DataAccess();
@@ -104,7 +104,7 @@ session_start();
                 }  
               }
 
-              if(!isset($_FILES["fileToUpload"]))
+              if(!empty($_FILES["fileToUpload"]))
               {
                 $FileError="Select Your Image";
               }
@@ -117,10 +117,9 @@ session_start();
                 {
                   //$FileError= "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
                 } 
-                else 
-                {
+                
                   $FileError= "Sorry, there was an error uploading your file.";
-                }
+                
               }
 
 
@@ -128,38 +127,42 @@ session_start();
             {
               if($UserType=="Seller")
               {
-                $insertQuery = "INSERT INTO Seller (username,Seller_name,Seller_email,Seller_contact,Seller_address,Gender,Password,Seller_image) VALUES 
-                                                   ('".$userName."','".$fName."','".$userEmail."','".$contactNo."','".$userAddress."','".$gender."','".$Password."','".$target_file."')";
-
-                if($newEntry->SetData($insertQuery))
+                
+                $stmt=$newEntry->conn->prepare("INSERT INTO Seller VALUES (?,?,?,?,?,?,?,?)");
+                $stmt->bind_param("ssssssss",$userName,$fName,$userEmail,$contactNo,$userAddress,$gender,$Password,$target_file);
+                
+                if($stmt->execute())
                 {
                   echo "Seller User Created Redirecting to Login Page";
                   header("Refresh:5;url= Login.php"); 
+                  $stmt->close();
                 }
                 else
                 {
                   echo "Seller User not Created";
                 }                                   
               }
-              else if($UserType=="Admin")
-              {
-                $insertQuery = "INSERT INTO Admin (username,Admin_name,Admin_email,Admin_address,Admin_contact,Gender,Password,Admin_image) VALUES 
-                                                 ('".$userName."','".$fName."','".$userEmail."','".$userAddress."','".$contactNo."','".$gender."','".$Password."','".$target_file."')";
+              // else if($UserType=="Admin")
+              // {
 
-                if($newEntry->SetData($insertQuery))
-                {
-                  echo "Admin User Created Redirecting to Login Page";
-                  header("Refresh:5;url= Login.php"); 
-                }
-                else
-                {
-                  echo "Admin User not Created";
-                }                                             
+              //   $stmt=$newEntry->conn->prepare("INSERT INTO Admin VALUES (?,?,?,?,?,?,?,?)");
+              //   $stmt->bind_param("ssssssss",$userName,$fName,$userEmail,$userAddress,$contactNo,$gender,$Password,$target_file);
 
-              }
+              //   if($stmt->execute())
+              //   {
+              //     echo "Admin User Created Redirecting to Login Page";
+              //     header("Refresh:5;url= Login.php"); 
+              //     $stmt->close();
+              //   }
+              //   else
+              //   {
+              //     echo "Admin User not Created";
+              //   }                                             
+
+              // }
               else
               {
-                echo "Sorry Another Option isn't availabe right now";
+                $UserTypeError= "Sorry Another Option isn't availabe right now";
               }
             }
             else
@@ -170,6 +173,5 @@ session_start();
 
 
          }
-
 
 ?>

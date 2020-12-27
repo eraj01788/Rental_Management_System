@@ -16,12 +16,6 @@ class DataAccess{
       }
    }
 
-   // function CheckUser($conn,$table,$username,$password)
-   // {
-   //    $result = $conn->query("SELECT * FROM ". $table." WHERE username='". $username."' AND password='". $password."'");
-   //    return $result;
-   // }
-
 
    function SetData($sqlQuery)
    {

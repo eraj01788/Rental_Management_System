@@ -1,0 +1,70 @@
+.mainsign {
+    border: 2px solid #926666;
+    margin: 20px 344px;
+}
+
+table {
+    margin: 20px 35px;
+}
+
+td.errortext {
+    color: #c35252;
+    padding: 4px;
+}
+
+input#fname {
+    border-radius: 5px;
+}
+
+input#email {
+    border-radius: 5px;
+}
+input#username {
+    border-radius: 5px;
+}
+
+input#contactnumber {
+    border-radius: 5px;
+}
+input#useraddress {
+    border-radius: 5px;
+}
+
+input#contactnumber {
+    border-radius: 5px;
+}
+input#pass {
+    border-radius: 5px;
+}
+
+input#conPass {
+    border-radius: 5px;
+}
+
+h2.signhead {
+    margin: 20px 278px;
+    font-size: 25px;
+    color: #063b61;
+}
+
+input.signupbtn {
+    background: #6b62f9;
+    padding: 8px 90px;
+    border-radius: 20px;
+    margin: 15px 35px;
+}
+
+input.signupbtn:hover {
+    background: rgb(134, 123, 231);
+}
+
+input.resetbtn {
+    background: #6b62f9;
+    padding: 8px 90px;
+    border-radius: 20px;
+    margin: 15px 2px;
+}
+
+input.resetbtn:hover {
+    background: rgb(134, 123, 231);
+}

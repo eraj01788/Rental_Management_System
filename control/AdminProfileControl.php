@@ -27,8 +27,8 @@ else
 
 $result1=$newConn->GetData($query1);
 
-while($row=$result1->fetch_assoc())
-{
+$row=$result1->fetch_assoc();
+
   $adminName=$row["Admin_name"];
   $adminId=$row["username"];
   $adminEmail=$row["Admin_email"];
@@ -36,7 +36,7 @@ while($row=$result1->fetch_assoc())
   $adminAddress=$row["Admin_address"];
   $adminGender=$row["Gender"];
   $adminImage=$row["Admin_image"];
-}
+
 
 
 ?>

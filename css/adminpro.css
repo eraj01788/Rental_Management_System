@@ -1,0 +1,84 @@
+.adminP {
+    width: 40%;
+    float: left;
+    border: 2px solid #000;
+    margin-right: 50%;
+    overflow: hidden;
+  }
+  
+  .afullprofile {
+    overflow: hidden;
+  }
+
+  input.apvbtn {
+    background: #6b62f9;
+    padding: 8px 90px;
+    border-radius: 20px;
+    margin: 15px 35px;
+    color: white;
+}
+
+input.apvbtn:hover{
+    background: rgb(134, 123, 231);
+    color: #000;
+}
+
+.unaprservice {
+    width: 47%;
+    float: left;
+    border: 2px solid #000;
+    /* margin-right: 50%; */
+    margin: 68px 343px;
+    overflow: hidden;
+}
+
+th.tableth {
+    border: 2px solid #8c4949;
+    padding: 7px;
+}
+
+td.tabletd {
+    border: 2px solid #8c4949;
+    padding: 7px;
+}
+
+input.tabletdbtn {
+    background: #6b62f9;
+    padding: 3px 9px;
+    border-radius: 20px;
+    margin: 0px 16px;
+    color: #fff;
+}
+
+input.tabletdbtn:hover{
+    background: rgb(134, 123, 231);
+}
+
+
+  input.updateadminbtn {
+    border-radius: 10px;
+    color: white;
+    background: #6b62f9;
+    margin: 10px 121px;
+}
+
+input.updateadminbtn:hover {
+    color: rgb(0, 0, 0);
+    background: rgb(134, 123, 231);
+}
+
+a.mngsellerbtn {
+    color: white;
+    background: #6b62f9;
+    margin: 10px 227px;
+    margin-inline: -100px;
+    text-decoration: none;
+    padding: 4px;
+    border-radius: 10px;
+    border: 2px solid black;
+}
+
+a.mngsellerbtn:hover {
+    color: rgb(0, 0, 0);
+    background: rgb(134, 123, 231);
+}
