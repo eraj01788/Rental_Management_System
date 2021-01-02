@@ -3,9 +3,21 @@
   <head>
     <meta charset="utf-8">
     <title>Home</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+function myFunction() {
+  var x = document.getElementById("hiddenmsgbox");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+</script>
   </head>
 
   <link rel="stylesheet" href="../css/main2.css">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 
   <body>
 
@@ -28,7 +40,15 @@
         {
           echo '<a href="AdminProfile.php"><h2>Profile</a></h2>';  
         }    
+
+        if (!isset($_COOKIE["username"])) 
+        {
+          header("Location: Login.php");
+        }
     ?>
   </div>
+
   </body>
 </html>
+
+

@@ -8,7 +8,7 @@ session_start();
             $UserTypeError=$fNameError=$userEmailError=$userNameError=$contactNoError=$userAddressError=$genderError=$PassError=$FileError="";
             $contactNo;
             $target_file;
-// store session data
+
          if (isset($_POST['submit']))
           {
 
@@ -104,7 +104,7 @@ session_start();
                 }  
               }
 
-              if(!empty($_FILES["fileToUpload"]))
+              if(empty($_FILES["fileToUpload"]))
               {
                 $FileError="Select Your Image";
               }
@@ -117,8 +117,10 @@ session_start();
                 {
                   //$FileError= "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
                 } 
-                
+                else{
                   $FileError= "Sorry, there was an error uploading your file.";
+                }
+                  
                 
               }
 
@@ -133,8 +135,10 @@ session_start();
                 
                 if($stmt->execute())
                 {
-                  echo "Seller User Created Redirecting to Login Page";
-                  header("Refresh:5;url= Login.php"); 
+                  echo '<script >
+                alert( "Seller user created" );
+                 </script>';
+                  header("Refresh:0;url= Login.php"); 
                   $stmt->close();
                 }
                 else
@@ -142,24 +146,6 @@ session_start();
                   echo "Seller User not Created";
                 }                                   
               }
-              // else if($UserType=="Admin")
-              // {
-
-              //   $stmt=$newEntry->conn->prepare("INSERT INTO Admin VALUES (?,?,?,?,?,?,?,?)");
-              //   $stmt->bind_param("ssssssss",$userName,$fName,$userEmail,$userAddress,$contactNo,$gender,$Password,$target_file);
-
-              //   if($stmt->execute())
-              //   {
-              //     echo "Admin User Created Redirecting to Login Page";
-              //     header("Refresh:5;url= Login.php"); 
-              //     $stmt->close();
-              //   }
-              //   else
-              //   {
-              //     echo "Admin User not Created";
-              //   }                                             
-
-              // }
               else
               {
                 $UserTypeError= "Sorry Another Option isn't availabe right now";
@@ -169,9 +155,6 @@ session_start();
             {
               $res="Must Fill All The Field";
             }
-
-
-
          }
 
 ?>

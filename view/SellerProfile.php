@@ -23,7 +23,7 @@ if(empty($_SESSION["username"])||empty($_SESSION["UserType"]))
 <form action="">
   <table>
     <tr>
-      <td><label for="PendingApprove">Pending Approve</label></td>
+      <td><label for="PendingApprove">Pending</label></td>
       <td></td>
     </tr>
   </table>
@@ -77,7 +77,7 @@ if(empty($_SESSION["username"])||empty($_SESSION["UserType"]))
         </table>
         <input name="UpdateProfile" type="submit" value="Update Profile"><br><br>
         <a class="pnabtn" href="PostnewAds.php">PostNewAds</a><br><br>
-
+        <a class="mngads" href="manageads.php">Manage Ads</a><br><br>
     </form>
 </div>
   </div>

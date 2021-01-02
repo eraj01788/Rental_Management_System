@@ -12,6 +12,7 @@ if(empty($_SESSION["username"])||empty($_SESSION["UserType"]))
   <head>
     <meta charset="utf-8">
     <title>Home</title>
+    <script src="../js/sellerupdatepass.js"></script>
   </head>
   <body>
 
@@ -51,9 +52,15 @@ if(empty($_SESSION["username"])||empty($_SESSION["UserType"]))
         </form>
     </fieldset>
 
-    
+    <button class="updatepassbtn" onclick="sellerupdatepass()">Click Here Update Password</button>
 
-    <a href="../control/logout.php">Log Out</a>
+    <div id="uppas">
+      <input type="password" id="pass" placeholder="Password"><br><br>
+      <input type="password" id="conpass" placeholder="Confirm Password"><br><br>
+      <button class="savepass" onclick="savepassvalid()">Save</button>
+    </div>
+
+    <p id="mytext"></p>
 
   </body>
 </html>

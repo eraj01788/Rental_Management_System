@@ -80,10 +80,6 @@ while($row=$result1->fetch_assoc())
                     <td> Profile image :</td>
                     <td><img src="<?PHP echo $sellerImage; ?>" alt="Profile Image" width="100" height="100"> </td>
                 </tr>
-
-                <tr>
-                    <td><br><br></td>
-                </tr>
             </table>
         </form>
     </fieldset>

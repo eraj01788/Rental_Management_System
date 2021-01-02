@@ -1,7 +1,8 @@
 .loginandsignup {
     border: 3px solid #926666;
-    margin: 20px 365px;
+    margin: 20px 35%;
     overflow: hidden;
+    width: 30%;
 }
 
 .loginaction {
@@ -59,4 +60,51 @@ h4.errortext {
     color: #c35252;
     padding: 4px;
     margin: 20px 195px;
+}
+
+
+a.forgotpassbtn {
+    color: white;
+    background: #6b62f9;
+    margin: 0px 118px;
+    text-decoration: none;
+    padding: 3px;
+    border-radius: 10px;
+    border: 2px solid black;
+}
+
+/* forgotpass */
+
+.forgotpassfield {
+    width: 30%;
+    margin: 5% 33%;
+    height: 500px;
+}
+
+input#searchemail {
+    width: 98%;
+    height: 30px;
+    border: 2px solid;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 15px;
+}
+
+.cngpass {
+    margin: 104px 42px;
+}
+
+button.cngpassbtn {
+    margin: 14px 0px;
+    width: 100%;
+    border-radius: 9px;
+    background: #6b62f9;
+    color: white;
+    height: 25px;
+    cursor: pointer;
+}
+
+button.cngpassbtn:hover {
+    background: rgb(134, 123, 231);
+    color: black;
 }

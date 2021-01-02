@@ -10,6 +10,7 @@ var contactNumber=document.getElementById("contactnumber").value;
 var userAddress=document.getElementById("useraddress").value;
 var uGender = document.querySelector('input[name = "gender"]:checked');
 
+
 if(userType != null)
 {
    if(fName==""||uEmail==""||userName==""||contactNumber==""||userAddress==""||uGender==null)
@@ -18,7 +19,9 @@ if(userType != null)
    }
    else
    {
+    
     ValidateEmail(uEmail);
+    ValidateLetter(fName);
    }
 } 
 else
@@ -39,6 +42,24 @@ function ValidateEmail(mail)
   {
     return (true)
   }
+  else
+  {
     alert("You have entered an invalid email address!")
     return (false)
+  }
+    
 }
+
+function ValidateLetter(txt)
+  {
+   var letters = /^[A-Za-z ]+$/;
+   if(txt.match(letters))
+     {
+      return true;
+     }
+   else
+     {
+     alert("Only Letter and white space");
+     return false;
+     }
+  }

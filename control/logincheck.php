@@ -57,18 +57,28 @@ if (isset($_POST['submit'])) {
     {
       $_SESSION["username"] = $username;
       $_SESSION["UserType"] = $UserType;
+
+      $cookie_name = "username";
+      $cookie_value =$username;
+      setcookie($cookie_name, $cookie_value, time() + (3600), "/");
+
       header("Refresh:1;url= Home.php"); 
     }
     else if($UserType=="Seller")
     {
       $_SESSION["username"] = $username;
       $_SESSION["UserType"] = $UserType;
+      $cookie_name = "username";
+      $cookie_value =$username;
+      setcookie($cookie_name, $cookie_value, time() + (3600), "/");
       header("Refresh:1;url= Home.php");
     }
   }
   else
     {
-      $userError= "User Not Found";
+      echo '<script >
+                alert( "User Not Found" );
+                 </script>';
     }
 }
 ?>

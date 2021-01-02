@@ -27,12 +27,15 @@ body {
     color: black;
     }
 
+    
+
     .footer{
       padding: 30px;
       width: 100%;
       background-color: #333;
       color: white;
       text-align: center;
+      margin-top: 328px;
     }
 
     .footer h2{
@@ -102,12 +105,138 @@ a.pnabtn:hover {
   background: rgb(134, 123, 231);
     color: #000;
 }
-h4 {
-  background: honeydew;
-}
 
 .pnadiv {
   border: 2px solid;
-  width: 30%;
+  width: 45%;
   margin: 70px 34%;
+}
+/*msg btn*/
+
+button.msgbtn {
+  padding: 6px 12px;
+  background: antiquewhite;
+  border-radius: 20px;
+  margin: 11px 10px;
+  color: red;
+}
+
+button.msgbtn:hover {
+  background: white;
+}
+
+div#hiddenmsgbox {
+  display: none;
+  overflow: hidden;
+  z-index: 1;
+  position: fixed;
+  border: 2px solid black;
+  width: 50%;
+  height: 50%;
+  background: #000000e3;
+  border-radius: 20px;
+  margin: -2px 446px;
+}
+
+h1.chatbox {
+  color: antiquewhite;
+  margin: 8px 18px;
+}
+h3.sellermsg {
+  color: white;
+}
+h3.adminmsg {
+  color: white;
+}
+
+.leftmsg
+{
+ float: left;
+}
+
+.rightmsg{
+  float: right;
+}
+
+
+/* seller contact page send msg btn */
+
+input.msgbox {
+  border: 2px solid black;
+  width: 100%;
+  height: 50px;
+}
+input.msgsendbtn {
+  height: 30px;
+  margin: 11px 18px;
+  background: #6b62f9;
+  border-radius: 20px;
+  /* text-decoration: none; */
+  color: #fff;
+  width: 90px;
+}
+
+input.msgsendbtn:hover {
+  background: rgb(134, 123, 231);
+  color: #000;
+}
+
+
+/* Manage Ads */
+a.mngads {
+  color: white;
+  background: #6b62f9;
+  margin: 10px 20px;
+  text-decoration: none;
+  padding: 6px;
+  border-radius: 10px;
+  border: 2px solid black;
+}
+
+a.mngads:hover {
+  background: rgb(134, 123, 231);
+    color: #000;
+}
+
+/*Seller pass update */
+button.updatepassbtn {
+  color: white;
+  background: #6b62f9;
+  margin: 10px 192px;
+  text-decoration: none;
+  padding: 4px;
+  border-radius: 10px;
+  border: 2px solid black;
+  cursor: pointer;
+}
+
+button.updatepassbtn:hover {
+  background: rgb(134, 123, 231);
+    color: #000;
+}
+
+button.savepass {
+  color: white;
+  background: #6b62f9;
+  margin: 10px 22px;
+  text-decoration: none;
+  padding: 4px;
+  border-radius: 10px;
+  border: 2px solid black;
+  cursor: pointer;
+  width: 68%;
+}
+
+button.savepass:hover {
+  background: rgb(134, 123, 231);
+    color: #000;
+}
+
+div#uppas {
+  border: 2 px solid;
+  border: 2px solid;
+  padding: 20px;
+  width: 13%;
+  margin: 2px 160px;
+  display: none;
 }

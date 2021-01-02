@@ -48,7 +48,7 @@ if(empty($_SESSION["username"])||empty($_SESSION["UserType"]))
 <tr>
   <td><label for="ServiceDetails">Service Location : </label></td>
   <td><input type="text" name="ServiceLocation"></td>
-  <td><?php echo $ServiceDetailsError?></td>
+  <td><?php echo $ServiceLocationError?></td>
 </tr>
 
 <tr>
@@ -62,7 +62,6 @@ if(empty($_SESSION["username"])||empty($_SESSION["UserType"]))
 <tr>
   <td></td>
   <td><input name="PostAds" type="submit" value="PostAds"></td>
-  <td><?php echo $AddServiceError?></td>
 </tr>
 </table>
 </form>

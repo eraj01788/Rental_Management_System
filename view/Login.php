@@ -9,26 +9,10 @@
       <script src="../js/loginvalid.js"></script>
    </head>
    <body>
-      <div class="header">
-         <h1>Rental Management System</h1>
-      </div>
-      <div class="topnav">
-         <a href="#">
-            <h2>Home</h2>
-         </a>
-         <a href="#">
-            <h2>BrowseAds</h2>
-         </a>
-         <a href="#">
-            <h2>Categorise</h2>
-         </a>
-         <a href="#">
-            <h2>Profile</h2>
-         </a>
-      </div>
-      
-      
 
+         <h1 class="head" align=center>Rental Management System</h1>
+      
+      
       <div class="loginandsignup">
 
       <div class="logintext">
@@ -36,7 +20,7 @@
       </div>
       
          <div class="loginaction">
-            <form action="" onsubmit="return loginValid()" method="post">
+            <form action="" onsubmit="return loginValid()" method="post" >
                <table>
                   <tr>
                      <td><label for="ChooseStuff">Type Of Account </label></td>
@@ -61,8 +45,12 @@
                   </tr>
                </table>
                <input name="submit" class="loginbtn" type="submit" value="LOGIN">
+               <br><br>
+
+               <a class="forgotpassbtn" href="forgotpass.php">Forgot Password</a>
             </form>
          </div>
+
          <div class="signupaction">
             <form action="SignUp.php"method="get">
                <label for="SignUp" class="signuptext">Don't Have Account SignUp First. </label>

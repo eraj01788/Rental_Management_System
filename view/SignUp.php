@@ -11,18 +11,8 @@
     <body>
 
 
+  <h1 class="head" align=center>Rental Management System</h1>
 
-    <div class="header">
-  <h1>Rental Management System</h1>
-  </div>
-
-  <div class="topnav">
-  <a href="#"><h2>Home</h2></a>
-  <a href="#"><h2>BrowseAds</h2></a>
-  <a href="#"><h2>Categorise</h2></a>
-  <a href="#"><h2>Profile</h2></a>
-
-  </div>
 
 
         <?php
@@ -116,7 +106,6 @@
             </form>
             </div>
         
-        <br><br>
     </body>
 </html>
 <?php 

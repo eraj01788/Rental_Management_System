@@ -2,7 +2,7 @@
 include ('DataAccess.php');
 $newEntry = new DataAccess();
 $sellerContact=$sellerAddress="";
-$contactNoError=$userAddressError=$FileError="";
+$contactNoError=$userAddressError=$FileError=$pass="";
 $sellerImage;
 
 $query1 = "SELECT Seller_contact,Seller_address,Seller_image FROM Seller WHERE username='".$_SESSION["username"]."'";

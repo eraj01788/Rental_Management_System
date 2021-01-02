@@ -70,12 +70,11 @@ if (isset($_POST['PostAds'])) {
     }
     if(empty($_POST["ServiceLocation"]))
     {
-        $ServiceDetailsError="Enter Location";
+        $ServiceLocationError="Enter Location";
     }
     else
     {
         $ServiceLocation=$_POST["ServiceLocation"];
-        
     }
 
 
