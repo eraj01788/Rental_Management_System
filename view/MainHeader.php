@@ -14,6 +14,13 @@ function myFunction() {
   }
 }
 </script>
+
+<style>
+  h1 {
+  color: black;
+  text-shadow: 2px 2px 4px #000000;
+}
+</style>
   </head>
 
   <link rel="stylesheet" href="../css/main2.css">
@@ -50,5 +57,7 @@ function myFunction() {
 
   </body>
 </html>
+
+
 
 
