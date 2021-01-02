@@ -10,8 +10,6 @@ function sellerupdatepass()
 
 function savepassvalid()
 {
-    
-
     var pass=document.getElementById("pass").value;
     var connpass=document.getElementById("conpass").value;
     if(pass==""||connpass=="")
@@ -26,6 +24,7 @@ function savepassvalid()
         }
         else
         {
+           var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
   
                 if (this.readyState == 4 && this.status == 200) {
@@ -36,7 +35,7 @@ function savepassvalid()
                      document.getElementById("mytext").innerHTML = this.status;
                 }
               };
-              xhttp.open("POST", "/MyCode/Project/control/sellerpassupdatecontrol.php", true);   
+              xhttp.open("POST","/MyCode/Project/control/sellerpassupdatecontrol.php", true);   
               xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
               xhttp.send("pass="+pass);
             //alert('Password Updated');
